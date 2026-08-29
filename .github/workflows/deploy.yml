@@ -36,7 +36,7 @@ jobs:
       - name: Build frontend
         working-directory: frontend
         env:
-          VITE_API_URL: ${{ vars.VITE_API_URL }}
+          VITE_API_URL: https://college-complaint-bd1h.onrender.com
         run: npm run build
 
       - name: Setup Pages
