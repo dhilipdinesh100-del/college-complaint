@@ -1,5 +1,5 @@
-import React, { useEffect } from 'react';
-import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
+import React from 'react';
+import { HashRouter, Routes, Route, Navigate } from 'react-router-dom';
 import { AuthProvider, useAuth } from './context/AuthContext';
 import { NotificationProvider } from './context/NotificationContext';
 
@@ -29,7 +29,6 @@ import AdminStaff from './pages/admin/Staff';
 
 import LoadingSpinner from './components/common/LoadingSpinner';
 
-const routerBasename = import.meta.env.PROD ? import.meta.env.BASE_URL.replace(/\/$/, '') : '/';
 
 // Protected Route Guard
 const ProtectedRoute = ({ children, allowedRole }) => {
@@ -81,26 +80,11 @@ const RootRedirect = () => {
 };
 
 function App() {
-  useEffect(() => {
-    const redirectTarget = new URLSearchParams(window.location.search).get('p');
-
-    if (!redirectTarget) {
-      return;
-    }
-
-    try {
-      const resolvedTarget = new URL(redirectTarget, `${window.location.origin}${import.meta.env.BASE_URL}`);
-      const nextPath = `${resolvedTarget.pathname}${resolvedTarget.search}${resolvedTarget.hash}`;
-      window.history.replaceState(null, '', nextPath);
-    } catch (error) {
-      console.warn('Failed to restore GitHub Pages route redirect:', error);
-    }
-  }, []);
 
   return (
     <NotificationProvider>
       <AuthProvider>
-        <BrowserRouter basename={routerBasename}>
+        <HashRouter>
           <Routes>
             {/* Root Landing Redirect */}
             <Route path="/" element={<RootRedirect />} />
@@ -164,7 +148,7 @@ function App() {
             {/* 404 Catch-all */}
             <Route path="*" element={<NotFound />} />
           </Routes>
-        </BrowserRouter>
+      </HashRouter>
       </AuthProvider>
     </NotificationProvider>
   );
