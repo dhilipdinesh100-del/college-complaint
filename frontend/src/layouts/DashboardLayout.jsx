@@ -23,7 +23,7 @@ const DashboardLayout = () => {
 
   const handleLogout = () => {
     logout();
-    navigate('/login');
+   navigate("/college-complaint/login")
   };
 
   const studentLinks = [
