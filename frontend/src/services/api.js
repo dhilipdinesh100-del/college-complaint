@@ -36,11 +36,10 @@ api.interceptors.response.use(
       localStorage.removeItem('token');
       localStorage.removeItem('user');
 
-      const basePath = import.meta.env.BASE_URL.replace(/\/$/, '');
-      const currentPath = window.location.pathname.replace(basePath, '') || '/';
+      const hashLoginUrl = `${window.location.origin}${import.meta.env.BASE_URL}#/login`;
+      const isLoginHash = window.location.hash === '#/login';
 
-      if (!currentPath.startsWith('/login')) {
-        window.location.href = `${import.meta.env.BASE_URL}login`;
+        window.location.assign(hashLoginUrl);
       }
     }
 
