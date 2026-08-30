@@ -39,6 +39,7 @@ api.interceptors.response.use(
       const hashLoginUrl = `${window.location.origin}${import.meta.env.BASE_URL}#/login`;
       const isLoginHash = window.location.hash === '#/login';
 
+      if (!isLoginHash) {
         window.location.assign(hashLoginUrl);
       }
     }
