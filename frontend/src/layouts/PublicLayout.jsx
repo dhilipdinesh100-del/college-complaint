@@ -10,10 +10,12 @@ const PublicLayout = () => {
         style={{
           backgroundColor: '#ffffff',
           borderBottom: '1px solid var(--slate-200)',
-          padding: '1rem 2rem',
+          padding: 'clamp(0.75rem, 2vw, 1.5rem) clamp(1rem, 4vw, 2rem)',
           display: 'flex',
           justifyContent: 'space-between',
           alignItems: 'center',
+          flexWrap: 'wrap',
+          gap: '1rem',
         }}
       >
         <Link to="/" style={{ display: 'flex', alignItems: 'center', gap: '0.625rem', textDecoration: 'none' }}>
@@ -32,7 +34,7 @@ const PublicLayout = () => {
             <ShieldCheck size={22} />
           </div>
           <div>
-            <div style={{ fontFamily: 'var(--font-heading)', fontSize: '1.25rem', fontWeight: 800, color: 'var(--slate-900)', lineHeight: 1.1 }}>
+            <div style={{ fontFamily: 'var(--font-heading)', fontSize: 'clamp(1rem, 2vw, 1.25rem)', fontWeight: 800, color: 'var(--slate-900)', lineHeight: 1.1 }}>
               Campus<span style={{ color: 'var(--primary-600)' }}>Resolve</span>
             </div>
             <div style={{ fontSize: '0.6875rem', fontWeight: 600, color: 'var(--slate-500)', textTransform: 'uppercase', letterSpacing: '0.05em' }}>
@@ -41,7 +43,7 @@ const PublicLayout = () => {
           </div>
         </Link>
 
-        <div style={{ display: 'flex', gap: '1rem', alignItems: 'center' }}>
+        <div style={{ display: 'flex', gap: 'clamp(0.5rem, 2vw, 1rem)', alignItems: 'center', flexWrap: 'wrap' }}>
           <Link to="/login" className="btn btn-secondary btn-sm">
             Sign In
           </Link>
@@ -52,7 +54,7 @@ const PublicLayout = () => {
       </header>
 
       {/* Main Content */}
-      <main style={{ flex: 1, display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '2rem 1rem' }}>
+      <main style={{ flex: 1, display: 'flex', alignItems: 'center', justifyContent: 'center', padding: 'clamp(1rem, 4vw, 2rem)' }}>
         <Outlet />
       </main>
 
@@ -60,7 +62,7 @@ const PublicLayout = () => {
       <footer
         style={{
           textAlign: 'center',
-          padding: '1.5rem',
+          padding: 'clamp(1rem, 2vw, 1.5rem)',
           fontSize: '0.8125rem',
           color: 'var(--slate-500)',
           borderTop: '1px solid var(--slate-200)',

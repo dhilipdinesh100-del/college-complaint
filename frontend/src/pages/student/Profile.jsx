@@ -148,7 +148,7 @@ const Profile = () => {
             </div>
           </div>
 
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem' }}>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(180px, 1fr))', gap: '1rem' }}>
             <div className="form-group">
               <label className="form-label" htmlFor="studentId">
                 Student ID / Roll No.
@@ -228,7 +228,7 @@ const Profile = () => {
               </div>
             </div>
 
-            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem' }}>
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(180px, 1fr))', gap: '1rem' }}>
               <div className="form-group">
                 <label className="form-label" htmlFor="newPassword">
                   New Password
